@@ -8,6 +8,11 @@
     "percentToQualify": 0,
     "password": "h",
     "records": [
-        
+        {
+            "user": "Poqqers",
+            "link": "https://www.youtube.com/watch?v=YnJUMU8SSa8&feature=youtu.be",
+            "percent": 66,
+            "hz": 360
+        }
     ]
 }
