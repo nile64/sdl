@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024" />
-        <title>Your List Name</title>
+        <title>The SDL</title>
 
         <!-- Replace your server icon by uploading an image file named "list_icon.png"-->
         <link rel="icon" href="/list_icon.png" />
@@ -33,12 +33,21 @@
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
         <script type="module" src="/js/main.js"></script>
+        <script type="module">
+            import { changeList } from "./js/content.js";
+
+            export function onChangeList(){
+                changeList();
+            }
+
+            window.onChangeList = onChangeList;
+        </script>
     </head>
     <body id="app">
         <header :class="{ dark: store.dark }">
             <div class="logo">
-                <h2>Sample List</h2>
-                <p>v1.0.0</p>
+                <h2>SDL</h2>
+                <p>v4.2.0</p>
             </div>
             <nav class="nav">
                 <router-link class="nav__tab" to="/">
@@ -71,6 +80,10 @@
                         target="_blank"
                         >Submit Record</a
                     >
+                    <select onchange="onChangeList()" class="nav__switch" id="list_dropdown">
+                        <option value="dl">Demonlist</option>
+                        <option value="ul">Unbeaten List</option>
+                    </select>
                 </div>
             </nav>
         </header>
